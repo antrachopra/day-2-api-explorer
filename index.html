@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#10130f">
+    <meta name="description" content="Explore characters from the Rick and Morty universe using live data from the public Rick and Morty API.">
+    <title>Rick and Morty Character Explorer | Portal Index</title>
+    <link rel="preconnect" href="https://rickandmortyapi.com">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#characters">Skip to characters</a>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Portal Index home">
+        <span class="brand-mark" aria-hidden="true">P<span>·</span></span>
+        <span>PORTAL<span class="brand-light"> INDEX</span></span>
+      </a>
+      <div class="header-note"><span class="live-dot" aria-hidden="true"></span> LIVE UNIVERSE DIRECTORY</div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow"><span>RICK AND MORTY CHARACTER EXPLORER</span><span class="eyebrow-rule" aria-hidden="true"></span><span>FIELD GUIDE</span></p>
+          <h1 id="page-title">Every universe<br>has <span>a story.</span></h1>
+          <p class="hero-description">A living directory of the people, species, and places scattered across the multiverse.</p>
+        </div>
+        <div class="hero-orbit" aria-hidden="true">
+          <span class="orbit orbit-one"></span>
+          <span class="orbit orbit-two"></span>
+          <span class="orbit-core">?</span>
+          <span class="orbit-caption">UNKNOWN<br>ORIGIN</span>
+        </div>
+        <div class="hero-index" aria-hidden="true"><span>RM</span><span>01 / ∞</span></div>
+      </section>
+
+      <section class="directory" id="characters" aria-labelledby="directory-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-kicker">THE DIRECTORY <span class="section-kicker-line" aria-hidden="true"></span></p>
+            <h2 id="directory-title">Known entities<span class="heading-period">.</span></h2>
+          </div>
+          <div class="data-readout" aria-live="polite">
+            <span class="readout-label">ON THIS PAGE</span>
+            <strong id="displayed-count">—</strong>
+            <span class="readout-divider" aria-hidden="true"></span>
+            <span class="readout-label">IN THE ARCHIVE</span>
+            <strong id="total-count">—</strong>
+          </div>
+        </div>
+
+        <form id="filter-form" class="filter-bar" role="search">
+          <label class="search-field" for="name-search">
+            <span class="control-label">SEARCH THE DIRECTORY</span>
+            <span class="search-input-wrap"><span class="search-icon" aria-hidden="true">⌕</span><input id="name-search" name="name" type="search" placeholder="Try a character name…" autocomplete="off"></span>
+          </label>
+          <label class="select-field" for="status-filter">
+            <span class="control-label">STATUS</span>
+            <select id="status-filter" name="status">
+              <option value="">All statuses</option>
+              <option value="alive">Alive</option>
+              <option value="dead">Dead</option>
+              <option value="unknown">Unknown</option>
+            </select>
+          </label>
+          <label class="select-field" for="species-filter">
+            <span class="control-label">SPECIES</span>
+            <select id="species-filter" name="species">
+              <option value="">All species</option>
+              <option value="Human">Human</option>
+              <option value="Alien">Alien</option>
+            </select>
+          </label>
+          <button id="reset-filters" class="button reset-button" type="button">Reset <span aria-hidden="true">↺</span></button>
+        </form>
+
+        <div id="request-status" class="request-status" role="status" aria-live="polite" hidden>
+          <span class="spinner" aria-hidden="true"></span>
+          <span id="request-message">Contacting the Citadel database…</span>
+        </div>
+
+        <div id="error-panel" class="error-panel" role="alert" hidden>
+          <p class="error-title">The portal connection dropped.</p>
+          <p id="error-message">We couldn’t retrieve the character directory. Check your connection and try again.</p>
+          <button id="retry-button" class="button button-secondary" type="button">Retry connection <span aria-hidden="true">↻</span></button>
+        </div>
+
+        <div id="character-grid" class="character-grid" aria-live="polite" aria-busy="false"></div>
+        <div class="load-more-wrap">
+          <button id="load-more-button" class="button load-more-button" type="button" hidden>
+            Load more entities <span aria-hidden="true">↓</span>
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>PORTAL INDEX <span class="footer-dim">/ AN INDEPENDENT API EXPLORER</span></span>
+      <a href="https://rickandmortyapi.com/documentation" target="_blank" rel="noreferrer">DATA SOURCE: RICK AND MORTY API <span aria-hidden="true">↗</span></a>
+    </footer>
+  </body>
+</html>
